@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::get('/posts', 'PostsController@index');
+Route::get("/posts", [PostsController::class, "index"]);
 Route::post('/posts/store', 'PostsController@store');
 Route::get('/posts/{id?}', 'PostsController@show');
 Route::post('/posts/update/{id?}', 'PostsController@update');
