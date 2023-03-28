@@ -24,12 +24,16 @@ class PostsController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'title'     => 'required',
-                'content'   => 'required',
+                'product_name'     => 'required',
+                'color'   => 'required',
+                'category'     => 'required',
+                'price'   => 'required',
             ],
             [
-                'title.required' => 'Masukkan Title Post !',
-                'content.required' => 'Masukkan Content Post !',
+                'product_name.required' => 'Masukkan Produk Post !',
+                'color.required' => 'Masukkan Color Post !',
+                'category.required' => 'Masukkan Category Post !',
+                'price.required' => 'Masukkan Price Post !',
             ]
         );
 
@@ -43,8 +47,10 @@ class PostsController extends Controller
         } else {
 
             $post = Post::create([
-                'title'     => $request->input('title'),
-                'content'   => $request->input('content')
+                'product_name'     => $request->input('product_name'),
+                'color'   => $request->input('color'),
+                'category'     => $request->input('category'),
+                'price'   => $request->input('price')
             ]);
 
 
@@ -88,12 +94,16 @@ class PostsController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'title'     => 'required',
-                'content'   => 'required',
+                'product_name'     => 'required',
+                'color'   => 'required',
+                'category'     => 'required',
+                'price'   => 'required',
             ],
             [
-                'title.required' => 'Masukkan Title Post !',
-                'content.required' => 'Masukkan Content Post !',
+                'product_name.required' => 'Masukkan Produk Post !',
+                'color.required' => 'Masukkan Color Post !',
+                'category.required' => 'Masukkan Category Post !',
+                'price.required' => 'Masukkan Price Post !',
             ]
         );
 
@@ -107,8 +117,10 @@ class PostsController extends Controller
         } else {
 
             $post = Post::whereId($request->input('id'))->update([
-                'title'     => $request->input('title'),
-                'content'   => $request->input('content'),
+                'product_name'     => $request->input('product_name'),
+                'color'   => $request->input('color'),
+                'category'     => $request->input('category'),
+                'price'   => $request->input('price')
             ]);
 
 

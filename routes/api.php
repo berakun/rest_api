@@ -20,7 +20,13 @@ use App\Http\Controllers\PostsController;
 // });
 
 Route::get("/posts", [PostsController::class, "index"]);
-Route::post('/posts/store', 'PostsController@store');
-Route::get('/posts/{id?}', 'PostsController@show');
-Route::post('/posts/update/{id?}', 'PostsController@update');
-Route::delete('/posts/{id?}', 'PostsController@destroy');
+Route::post('/posts/store', [PostsController::class, "store"]);
+Route::get('/posts/{id?}', [PostsController::class, "show"]);
+Route::post('/posts/update/{id?}', [PostsController::class, "update"]);
+Route::delete('/posts/{id?}', [PostsController::class, "destroy"]);
+
+// Route::get('/posts', 'PostsController@index');
+// Route::post('/posts/store', 'PostsController@store');
+// Route::get('/posts/{id?}', 'PostsController@show');
+// Route::post('/posts/update/{id?}', 'PostsController@update');
+// Route::delete('/posts/{id?}', 'PostsController@destroy');
