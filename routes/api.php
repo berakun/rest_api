@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\BooksController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +33,14 @@ Route::post('/post/store/books', [BooksController::class, "store"]);
 Route::get('/post/books/{id?}', [BooksController::class, "show"]);
 Route::post('/post/update/books/{id?}', [BooksController::class, "update"]);
 Route::delete('/post/books/{id?}', [BooksController::class, "destroy"]);
+
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
+Route::post('/register', [RegisterController::class, 'register']);
+Route::post('/login', [LoginController::class, 'login']);
+Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth:api');
 
 // Route::get('/posts', 'PostsController@index');
 // Route::post('/posts/store', 'PostsController@store');
